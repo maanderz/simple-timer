@@ -17,15 +17,15 @@ class Timer extends Component {
     };
     this.ticker = this.ticker.bind(this)
   }
-
   render(){
     let clock = Math.round(this.state.clock / 1000)
     return(
       <div>
-        <p> You've been here since: </p>
+        <p> How long you've been here: </p>
         <br />
-        <span> { clock } </span>
+        { this.state.clock < 30000 ? <span className="clock"> { clock } </span> : <span className="redClock"> { clock } </span> } 
         <p> Seconds! </p>
+        { this.state.clock > 30000 ? <div> Why are you still here? 😳 </div> : null }
       </div>
     )
   }
